@@ -1,14 +1,56 @@
 # I2C address of the LSM6DSOX (0x6A if SA0 pin is low, otherwise 0x6B)
 LSM6DSOX_ADDR = 0x6A
+#frequency settings for accelerometer
+FQ_POWER_DOWN = 0x00   #capteur désactivé
+FQ12_5HZ      = 0x10
+FQ26HZ        = 0x20
+FQ52HZ        = 0x30
+FQ104HZ       = 0x40
+FQ208HZ       = 0x50
+FQ416HZ       = 0x60
+FQ833HZ       = 0x70
+FQ1660HZ      = 0x80  # 1.66 kHz
+FQ3330HZ      = 0x90  # 3.33 kHz
+FQ6660HZ      = 0xA0  # 6.66 kHz
+#Accelerometer full-scale selection
+FS_2G  = 0x00
+FS_16G = 0x04
+FS_4G  = 0x08
+FS_8G  = 0x0C
 
-# Important LSM6DSOX registers
-CTRL1_XL = 0x10       # Accelerometer configuration (ODR, range, etc.)
-CTRL2_G = 0x11        # Gyroscope configuration (ODR, range, etc.)
-CTRL3_C = 0x12        # General configuration (BDU, auto-increment...)
-OUTX_L_G = 0x22       # Start of gyroscope data registers (6 bytes)
-OUTX_L_XL = 0x28      # Start of accelerometer data registers (6 bytes)
-# Time Delay
-t = 1
+#Gyroscope Frequencies
+FQ_G_POWER_DOWN = 0x00
+FQ_G_12_5HZ     = 0x10
+FQ_G_26HZ       = 0x20
+FQ_G_52HZ       = 0x30
+FQ_G_104HZ      = 0x40
+FQ_G_208HZ      = 0x50
+FQ_G_416HZ      = 0x60
+FQ_G_833HZ      = 0x70
+FQ_G_1660HZ     = 0x80
+FQ_G_3330HZ     = 0x90
+FQ_G_6660HZ     = 0xA0
+
+# Gyroscope Full Scale
+FS_G_125DPS   = 0x02
+FS_G_245DPS   = 0x00
+FS_G_500DPS   = 0x04
+FS_G_1000DPS  = 0x08
+FS_G_2000DPS  = 0x0C
+
+# CTRL3_C_Register Bits
+#define CTRL3_C_SW_RESET      0x80  // Bit 7: Software Reset
+#define CTRL3_C_BOOT          0x40  // Bit 6: Reboot memory content
+#define CTRL3_C_H_LACTIVE     0x20  // Bit 5: Interrupt active level
+#define CTRL3_C_PP_OD         0x10  // Bit 4: Push-pull/open-drain
+#define CTRL3_C_ODR           0x08  // Bit 3: Output Data Rate
+#define CTRL3_C_ODR_G         0x04  // Bit 2: Gyroscope Output Data Rate
+#define CTRL3_C_ODR_XL        0x02  // Bit 1: Accelerometer Output Data Rate
+#define CTRL3_C_ODR_TEMP      0x01  // Bit 0: Temperature Output Data Rate
+
+
+# Time delay for each data read (in seconds)
+time_delay = 1
 # SCALE FACTOR
 # - For other ranges (±4g, ±8g, ±16g or ±500/1000/2000 dps), the scale factor changes (see LSM6DSOX datasheet)
 #   Accelerometer scale factors (LSB/g):

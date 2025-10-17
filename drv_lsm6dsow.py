@@ -15,6 +15,13 @@ from setting import *
 
 # I2C address of the LSM6DSOX (0x6A if SA0 pin is low, otherwise 0x6B)
 
+# Important LSM6DSOX registers
+CTRL1_XL = 0x10   # Accelerometer configuration (ODR, range, etc.)
+CTRL2_G = 0x11        # Gyroscope configuration (ODR, range, etc.)
+CTRL3_C = 0x12        # General configuration (BDU, auto-increment...)
+OUTX_L_G = 0x22       # Start of gyroscope data registers (6 bytes)
+OUTX_L_XL = 0x28      # Start of accelerometer data registers (6 bytes)
+
 class Driver:
     def __init__(self, bus=1, adresse=LSM6DSOX_ADDR):
         # Open the I2C bus (bus=1 for Raspberry Pi)
@@ -26,10 +33,10 @@ class Driver:
         # Initialize the sensor:
         # - Accelerometer at 104 Hz, ±2g range (0x40)
         #   (ODR_XL = 104 Hz, FS_XL = ±2g)
-        self.bus.write_byte_data(self.adresse, CTRL1_XL, 0x42)
+        self.bus.write_byte_data(self.adresse, CTRL1_XL, FQ104HZ | FS_2G)
         # - Gyroscope at 104 Hz, ±250 dps range (0x40)
         #   (ODR_G = 104 Hz, FS_G = ±250 dps)
-        self.bus.write_byte_data(self.adresse, CTRL2_G, 0x40)
+        self.bus.write_byte_data(self.adresse, CTRL2_G, FQ_G_104HZ | FS_G_245DPS)
         # - Enable BDU (Block Data Update) and auto-increment (0x44)
         self.bus.write_byte_data(self.adresse, CTRL3_C, 0x44)
         time.sleep(0.1)  # Small delay for settings to take effect
