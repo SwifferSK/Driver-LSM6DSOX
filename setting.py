@@ -1,7 +1,7 @@
 # I2C address of the LSM6DSOX (0x6A if SA0 pin is low, otherwise 0x6B)
 LSM6DSOX_ADDR = 0x6A
 #frequency settings for accelerometer
-FQ_POWER_DOWN = 0x00   #capteur désactivé
+FQ_POWER_DOWN = 0x00   # capteur désactivé
 FQ12_5HZ      = 0x10
 FQ26HZ        = 0x20
 FQ52HZ        = 0x30
