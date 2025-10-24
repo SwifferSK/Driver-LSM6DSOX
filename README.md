@@ -1,9 +1,9 @@
 # Driver-LSM6DSOX
 LSM6DSOX - Datasheet de STM Electronics
 
-Voici les informations que l'on peut tirer d'après le [PDF officiel de STM Electronics](https://www.st.com/resource/en/datasheet/lsm6dsox.pdf)
+Voici les informations que l'on peut tirer d'après le [Datasheet LSM6DSOX](https://www.st.com/resource/en/datasheet/lsm6dsox.pdf)
 
-1. __Qu'est-ce que le composant LSM6DSOX ?__
+1. __What is the LSM6DSOX component ?__
 
 " The LSM6DSOX is a 6-axis IMU (inertial measurement unit) system-in-package
 featuring a 3-axis digital accelerometer and a 3-axis digital gyroscope, boosting
@@ -19,15 +19,15 @@ output data. It is also possible to connect an external sensor (magnetometer) by
 All 16 finite state machines are independent: each one has its dedicated memory area and it is independently
 executed. An interrupt is generated when the end state is reached or when some specific command is performed."
 
-![Figure 1: State machine in the LSM6DSOX](images/fsm.png)
+![Figure 1: State machine in the LSM6DSOX](pictures/fsm.png)
 
-1. __Description des PIN__
+1. __Description of the PIN__
 
-![Figure 2: Pin connections](images/PIN_connection.png)
+![Figure 2: Pin connections](pictures/PIN_connection.png)
 
-![Figure 3: Pin description](images/PIN_description.png)
+![Figure 3: Pin description](pictures/PIN_description.png)
 
-2. __Protocole de communication I²C__
+2. __Communication protocol I²C__
 
 "The registers embedded inside the LSM6DSOX may be accessed through both the I²C and SPI serial interfaces.
 The latter may be software configured to operate either in 3-wire or 4-wire interface mode. The device is
@@ -35,14 +35,13 @@ compatible with SPI modes 0 and 3.
 The serial interfaces are mapped onto the same pins. To select/exploit the I²C interface, the CS line must be tied
 high (that is, connected to VDDIO)."
 
-![Figure 4: I²C/I3C coexistence in LSM6DSOX](images/I2C_Schemas.png)
+![Figure 4: I²C/I3C coexistence in LSM6DSOX](pictures/I2C_Schemas.png)
 
 "If the LSM6DSOX is configured in mode 2, a master I²C line is available. The master serial interface is mapped to
 the following dedicated pins."
 
-![Figure 5: Master I²C pin details](images/PIN_I2C.png)
+![Figure 5: Master I²C pin details](pictures/PIN_I2C.png)
 
-Librairie trouvée : SINBUS
 
-Données tirées d'après [la datasheet de STM Electronics](https://www.st.com/resource/en/datasheet/lsm6dsox.pdf)
+
 

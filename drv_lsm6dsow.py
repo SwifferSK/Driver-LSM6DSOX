@@ -13,8 +13,6 @@ from setting import *
 # The values read are raw (signed 16-bit integers). To get acceleration in g or angular velocity in dps,
 # you must apply a scale factor (see notes at the end).
 
-# I2C address of the LSM6DSOX (0x6A if SA0 pin is low, otherwise 0x6B)
-
 # Important LSM6DSOX registers
 CTRL1_XL = 0x10   # Accelerometer configuration (ODR, range, etc.)
 CTRL2_G = 0x11        # Gyroscope configuration (ODR, range, etc.)
@@ -30,12 +28,8 @@ class drv_lsm6dsow:
         self.init_lsm6dsox()
 
     def init_lsm6dsox(self):
-        # Initialize the sensor:
-        # - Accelerometer at 104 Hz, ±2g range (0x40)
-        #   (ODR_XL = 104 Hz, FS_XL = ±2g)
+        # Initialize the sensor with desired settings:
         self.bus.write_byte_data(self.adresse, CTRL1_XL, FQ104HZ | FS_2G)
-        # - Gyroscope at 104 Hz, ±250 dps range (0x40)
-        #   (ODR_G = 104 Hz, FS_G = ±250 dps)
         self.bus.write_byte_data(self.adresse, CTRL2_G, FQ_G_104HZ | FS_G_245DPS)
         # - Enable BDU (Block Data Update) and auto-increment (0x44)
         self.bus.write_byte_data(self.adresse, CTRL3_C, 0x44)

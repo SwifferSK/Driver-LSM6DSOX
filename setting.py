@@ -1,11 +1,13 @@
 # I2C address of the LSM6DSOX (0x6A if SA0 pin is low, otherwise 0x6B)
 LSM6DSOX_ADDR = 0x6A
+
 # I2C bus (1 for Raspberry Pi)
 i2cbus = 1
+
 # Number of bytes to read for gyro and accel
 bytes = 6
 #frequency settings for accelerometer
-FQ_POWER_DOWN = 0x00   # capteur désactivé
+FQ_POWER_DOWN = 0x00   # gyroscope disabled
 FQ12_5HZ      = 0x10
 FQ26HZ        = 0x20
 FQ52HZ        = 0x30
@@ -16,6 +18,7 @@ FQ833HZ       = 0x70
 FQ1660HZ      = 0x80  # 1.66 kHz
 FQ3330HZ      = 0x90  # 3.33 kHz
 FQ6660HZ      = 0xA0  # 6.66 kHz
+
 #Accelerometer full-scale selection
 FS_2G  = 0x00
 FS_16G = 0x04
@@ -23,7 +26,7 @@ FS_4G  = 0x08
 FS_8G  = 0x0C
 
 #Gyroscope Frequencies
-FQ_G_POWER_DOWN = 0x00
+FQ_G_POWER_DOWN = 0x00  # gyroscope disabled
 FQ_G_12_5HZ     = 0x10
 FQ_G_26HZ       = 0x20
 FQ_G_52HZ       = 0x30
@@ -53,22 +56,23 @@ FS_G_2000DPS  = 0x0C
 #define CTRL3_C_ODR_TEMP      0x01  // Bit 0: Temperature Output Data Rate
 
 
+
 # Time delay for each data read (in seconds)
 time_delay = 1
+
 # SCALE FACTOR
 # - For other ranges (±4g, ±8g, ±16g or ±500/1000/2000 dps), the scale factor changes (see LSM6DSOX datasheet)
 #   Accelerometer scale factors (LSB/g):
-#     ±2g  : 0.000061 g/LSB
-#     ±4g  : 0.000122 g/LSB
-#     ±8g  : 0.000244 g/LSB
-#     ±16g :   (0.000488 g/LSB
-g = 0.000061
+2g = 0.000061
+4g = 0.000122
+8g = 0.000244
+16g = 0.000488
 #   Gyroscope scale factors (LSB/dps):
-#     ±250 dps  : 0.00875 dps/LSB
-#     ±500 dps  : 0.0175 dps/LSB
-#     ±1000 dps : 0.035 dps/LSB
-#     ±2000 dps : 0.07 dps/LSB
-dps = 0.00875
+250dps = 0.00875
+500dps = 0.0175
+1000dps = 0.035
+2000dps = 0.07
+
 # =====================
 # Additional notes:
 #
