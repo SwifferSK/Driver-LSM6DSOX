@@ -63,15 +63,16 @@ time_delay = 1
 # SCALE FACTOR
 # - For other ranges (±4g, ±8g, ±16g or ±500/1000/2000 dps), the scale factor changes (see LSM6DSOX datasheet)
 #   Accelerometer scale factors (LSB/g):
-2g = 0.000061
-4g = 0.000122
-8g = 0.000244
-16g = 0.000488
+SF_2G = 0.000061
+SF_4G = 0.000122
+SF_8G = 0.000244
+SF_16G = 0.000488
+
 #   Gyroscope scale factors (LSB/dps):
-250dps = 0.00875
-500dps = 0.0175
-1000dps = 0.035
-2000dps = 0.07
+SF_200DPS = 0.00875
+SF_500DPS = 0.0175
+SF_1000DPS = 0.035
+SF_2000DPS = 0.07
 
 # =====================
 # Additional notes:
