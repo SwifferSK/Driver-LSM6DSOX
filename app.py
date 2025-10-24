@@ -3,7 +3,7 @@ from setting import *
 import math
 if __name__ == "__main__":
     # Instantiate the driver (I2C bus 1)
-    driver = Driver(bus=1)
+    driver = drv_lsm6dsow(bus=1)
     print("Reading acceleration and gyroscope values :")
     print("Press Ctrl+C to stop.")
     while True:

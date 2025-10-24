@@ -1,5 +1,9 @@
 # I2C address of the LSM6DSOX (0x6A if SA0 pin is low, otherwise 0x6B)
 LSM6DSOX_ADDR = 0x6A
+# I2C bus (1 for Raspberry Pi)
+i2cbus = 1
+# Number of bytes to read for gyro and accel
+bytes = 6
 #frequency settings for accelerometer
 FQ_POWER_DOWN = 0x00   # capteur désactivé
 FQ12_5HZ      = 0x10

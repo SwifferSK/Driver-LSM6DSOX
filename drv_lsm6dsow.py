@@ -22,8 +22,8 @@ CTRL3_C = 0x12        # General configuration (BDU, auto-increment...)
 OUTX_L_G = 0x22       # Start of gyroscope data registers (6 bytes)
 OUTX_L_XL = 0x28      # Start of accelerometer data registers (6 bytes)
 
-class Driver:
-    def __init__(self, bus=1, adresse=LSM6DSOX_ADDR):
+class drv_lsm6dsow:
+    def __init__(self, bus=i2cbus , adresse=LSM6DSOX_ADDR):
         # Open the I2C bus (bus=1 for Raspberry Pi)
         self.bus = smbus2.SMBus(bus)
         self.adresse = adresse
@@ -43,7 +43,7 @@ class Driver:
 
     def read_accel(self):
         # Read 6 bytes from OUTX_L_XL: X_L, X_H, Y_L, Y_H, Z_L, Z_H
-        data = self.bus.read_i2c_block_data(self.adresse, OUTX_L_XL, 6)
+        data = self.bus.read_i2c_block_data(self.adresse, OUTX_L_XL, bytes)
         # Combine bytes and convert to signed integer (two's complement)
         x = self._twos_complement(data[1] << 8 | data[0], 16)
         y = self._twos_complement(data[3] << 8 | data[2], 16)
@@ -52,7 +52,7 @@ class Driver:
 
     def read_gyro(self):
         # Read 6 bytes from OUTX_L_G: X_L, X_H, Y_L, Y_H, Z_L, Z_H
-        data = self.bus.read_i2c_block_data(self.adresse, OUTX_L_G, 6)
+        data = self.bus.read_i2c_block_data(self.adresse, OUTX_L_G, bytes)
         # Combine bytes and convert to signed integer (two's complement)
         x = self._twos_complement(data[1] << 8 | data[0], 16)
         y = self._twos_complement(data[3] << 8 | data[2], 16)
