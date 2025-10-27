@@ -1,7 +1,7 @@
 # Driver-LSM6DSOX
 LSM6DSOX - Datasheet de STM Electronics
 
-Voici les informations que l'on peut tirer d'après le [Datasheet LSM6DSOX](https://www.st.com/resource/en/datasheet/lsm6dsox.pdf)
+[Datasheet LSM6DSOX](https://www.st.com/resource/en/datasheet/lsm6dsox.pdf)
 
 1. __What is the LSM6DSOX component ?__
 
