@@ -45,17 +45,15 @@ FS_G_500DPS   = 0x04
 FS_G_1000DPS  = 0x08
 FS_G_2000DPS  = 0x0C
 
-# CTRL3_C_Register Bits
-#define CTRL3_C_SW_RESET      0x80  // Bit 7: Software Reset
-#define CTRL3_C_BOOT          0x40  // Bit 6: Reboot memory content
-#define CTRL3_C_H_LACTIVE     0x20  // Bit 5: Interrupt active level
-#define CTRL3_C_PP_OD         0x10  // Bit 4: Push-pull/open-drain
-#define CTRL3_C_ODR           0x08  // Bit 3: Output Data Rate
-#define CTRL3_C_ODR_G         0x04  // Bit 2: Gyroscope Output Data Rate
-#define CTRL3_C_ODR_XL        0x02  // Bit 1: Accelerometer Output Data Rate
-#define CTRL3_C_ODR_TEMP      0x01  // Bit 0: Temperature Output Data Rate
-
-
+# CTRL3_C Register Bits
+CTRL3_C_BOOT      = 0x80  # Bit 7: Reboot memory content
+CTRL3_C_BDU       = 0x40  # Bit 6: Block Data Update
+CTRL3_C_H_LACTIVE = 0x20  # Bit 5: Interrupt active level (0: high, 1: low)
+CTRL3_C_PP_OD     = 0x10  # Bit 4: Push-pull / Open-drain selection for INT1/INT2
+CTRL3_C_SIM       = 0x08  # Bit 3: SPI Serial Interface Mode selection (0: 4-wire, 1: 3-wire)
+CTRL3_C_IF_INC    = 0x04  # Bit 2: Register address auto-increment enable (1: enabled)
+# Bit 1 is reserved and should be kept at 0
+CTRL3_C_SW_RESET  = 0x01  # Bit 0: Software Reset
 
 # Time delay for each data read (in seconds)
 time_delay = 1

@@ -28,11 +28,11 @@ class drv_lsm6dsow:
         self.init_lsm6dsox()
 
     def init_lsm6dsox(self):
-        # Initialize the sensor with desired settings:
+        # Initialize the sensor with desired settings (104 Hz, ±2g for accel, 104 Hz, ±245 dps for gyro):
         self.bus.write_byte_data(self.adresse, CTRL1_XL, FQ104HZ | FS_2G)
         self.bus.write_byte_data(self.adresse, CTRL2_G, FQ_G_104HZ | FS_G_245DPS)
-        # - Enable BDU (Block Data Update) and auto-increment (0x44)
-        self.bus.write_byte_data(self.adresse, CTRL3_C, 0x44)
+        # - Enable BDU (Block Data Update) and auto-increment
+        self.bus.write_byte_data(self.adresse, CTRL3_C, CTRL3_C_BDU | CTRL3_C_IF_INC)
         time.sleep(0.1)  # Small delay for settings to take effect
 
     def read_accel(self):

@@ -42,6 +42,20 @@ the following dedicated pins."
 
 ![Figure 5: Master I²C pin details](pictures/PIN_I2C.png)
 
+3. __Raspberry pi zero 2 w pin use__
 
+![Figure 6: raspberry pi zero 2 w pin use](pictures/Raspbery_pi_zero_2w.png)
 
+We use the following pins for the I²C communication with the LSM6DSOX:
+- Pin 1: 3.3V Power
+- Pin 3: SDA (I²C Data)
+- Pin 5: SCL (I²C Clock)
+- Pin 6: Ground
 
+4. __I²C Visualization__
+
+![Figure 6: I²C Visualization](pictures/i2c_oscilo.jpg)
+
+ We can see on the oscilloscope the I²C communication between the Raspberry Pi and the LSM6DSOX.
+- Yellow: SCL
+- Purple: SDA 
